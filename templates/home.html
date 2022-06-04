@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+
+</head>
+
+<body>
+ <div class="fire pred">
+	<h1>Algerian forest fires Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+      <input type="text" name="Temperature" placeholder="Temperature" required="required" /><br>
+    	<input type="text" name="RH" placeholder="RH" required="required" /><br>
+        <input type="text" name="Rain" placeholder="Rain" required="required" /><br>
+        <input type="text" name="FFMC" placeholder="FFMC" required="required" /><br>
+        <input type="text" name="DMC" placeholder="DMC" required="required" /><br>
+        <input type="text" name="DC" placeholder="DC" required="required" /><br>
+        <input type="text" name="ISI" placeholder="ISI" required="required" /><br>
+        <input type="text" name="BUI" placeholder="BUI" required="required" /><br>
+        <input type="text" name="FWI" placeholder="FWI" required="required" /><br>
+
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+      <br>
+   <br>
+
+
+ </div>
+ {{prediction_text}}
+
+ <div class="Temp_pred">
+
+     <h1> Algerian Temperature Prediction</h1>
+
+     <form action="{{ url_for('predict_temp')}}"method="post">
+      <input type="text" name="Month" placeholder="Month" required="required" /><br>
+    	<input type="text" name="RH" placeholder="RH" required="required" /><br>
+        <input type="text" name="Rain" placeholder="Rain" required="required" /><br>
+        <input type="text" name="FFMC" placeholder="FFMC" required="required" /><br>
+        <input type="text" name="DMC" placeholder="DMC" required="required" /><br>
+        <input type="text" name="DC" placeholder="DC" required="required" /><br>
+        <input type="text" name="ISI" placeholder="ISI" required="required" /><br>
+        <input type="text" name="BUI" placeholder="BUI" required="required" /><br>
+        <input type="text" name="FWI" placeholder="FWI" required="required" /><br>
+
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict_Temp</button>
+    </form>
+     <
+
+   <br>
+   <br>
+
+
+ </div>
+ {{prediction_text2}}
+
+<div class="Temp_pred_batch">
+
+     <h1> Algerian Temperature or Forest Fire Prediction from Mysql</h1>
+
+     <form action="{{ url_for('pred_temp_batch')}}"method="post">
+      <input type="text" name="user" placeholder="Database_User" required="required" /><br>
+    	<input type="password" name="pass" placeholder="Database Password" required="required" /><br>
+        <input type="text" name="database" placeholder="Database name" required="required" /><br>
+         <input type="text" name="Table" placeholder="Table name" required="required" /><br>
+
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict_Temp</button>
+         <button type="submit" formaction="{{ url_for('pred_fire_batch')}}">Predict_Forest_Fire</button>
+
+    </form>
+
+   <br>
+   <br>
+
+
+ </div>
+ {{prediction_text3}}
+
+</body>
+</html>
