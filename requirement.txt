@@ -1,4 +1,10 @@
-flask
+Flask
+gunicorn
+Jinja2
+Werkzeug
+scipy
+scikit-learn
+matplotlib
 mysql-connector-python
 pandas
 sklearn
